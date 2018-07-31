@@ -10,8 +10,13 @@ import OpponentChoice from "./../../components/OpponentChoice";
 import AddToken from "./../../components/AddToken";
 import Content from "./../../components/Content";
 import '../../assets/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Panel } from 'react-bootstrap';
 
 const { injectNOS, nosProps } = react.default;
+
+import Background from './bg.jpg';
 
 
 
@@ -23,6 +28,7 @@ const styles = {
     margin: 0,
     padding: 0,
     backgroundColor: "#ffffff"
+    // backgroundImage: `url(${Background})`
   },
   App: {
     textAlign: "center"
@@ -85,19 +91,20 @@ render = () => {
   return (
     <div className={classes.App}>
       <Header title="The Top Rated Tokens" />
-      <p className={classes.intro}>
-      You can vote for the most profitable tokens on exchange
-         at the moment.
-      </p>
 
-      <hr className={classes.lineBreak} />
+      <div className="Panel">
+
+        <p>You can vote for the most profitable tokens on exchange
+           at the moment. The vote counter will be reset after one week.</p>
+
+      </div>
+
 
 
      <Content  contract = {this.state.contract}/>
 
 
 
-      <hr className={classes.lineBreak} />
 
 
     </div>

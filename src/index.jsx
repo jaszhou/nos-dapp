@@ -9,6 +9,10 @@ import vendorPrefixer from "jss-vendor-prefixer";
 import { JssProvider } from "react-jss";
 
 import App from "./views/App";
+import 'bootstrap/dist/css/bootstrap.css';
+
+
+
 
 const jss = createJss();
 jss.use(vendorPrefixer(), camelCase(), globalStyles());
@@ -20,6 +24,9 @@ ReactDOM.render(
   document.getElementById("root")
 
 
+
+
 );
+
 
 //  document.getElementsByTagName("webview")[0].openDevTools();

@@ -7,6 +7,8 @@ import utils from "../../utils";
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import TableRow from "../TableRow";
 
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+
 const { injectNOS, nosProps } = react.default;
 const styles = {
   choices: {
@@ -87,10 +89,10 @@ class AddToken extends React.Component {
                onChange = {this.updateState} />
 
 
-            <button onClick={() => this.makeVote(this.state.token_name)}>
+            <Button onClick={() => this.makeVote(this.state.token_name)}>
 
               Add
-            </button>
+            </Button>
          </div>
       );
    }

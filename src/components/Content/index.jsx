@@ -8,6 +8,8 @@ import utils from "../../utils";
 import TableRow from "../TableRow";
 import AddToken from "./../../components/AddToken";
 
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+
 const { injectNOS, nosProps } = react.default;
 
 const styles = {
@@ -30,6 +32,7 @@ const styles = {
     margin: "32px auto"
   }
 };
+
 
 
 class Content extends React.Component {
@@ -60,6 +63,10 @@ class Content extends React.Component {
      this.handleInvoke(this.props.contract, "add", [name]);
    };
 
+   deleteAll = async () => {
+     console.log("Invoke 'deleteAll'");
+     this.handleInvoke(this.props.contract, "deleteAll", []);
+   };
 
 
    handleInvoke = (scriptHash, operation, args) =>
@@ -112,15 +119,41 @@ class Content extends React.Component {
 
     console.log(this.state.tokens.toString());
 
+    //<TimerExample start={Date.now()} />
+
+   // reset after one day  1000*60*60*24
+
+    // setTimeout(() => {
+    //
+    //   setInterval(() => {
+    //     console.log('reset counter');
+    //
+    //     this.deleteAll();
+    //
+    //   }, 1000*60*60*24*7);
+    //
+    // }, 1000*60*60*24*7);
+
+
+
   };
+
+
+
+
 
    render() {
 
      // this.getList('token_list');
      //
-     this.state.tokens = this.state.list.split(",");
+
+
+     if(this.state.list){
+
+      this.state.tokens = this.state.list.split(",");
 
      console.log(this.state.tokens.toString() + "len: " +this.state.tokens.length);
+    }
 
      // this.setState({tokens:this.state.list.split(",")});
 
@@ -143,7 +176,7 @@ class Content extends React.Component {
             <div className={classes.App}>
 
 
-            <table align='center'>
+            <table align='center' className='table table-striped'>
               <thead>
                 <tr>
                   <th>Token</th>
@@ -161,7 +194,7 @@ class Content extends React.Component {
               </tbody>
             </table>
 
-            <hr className={classes.lineBreak} />
+
 
             <AddToken  contract = {this.props.contract} />
 

@@ -9,6 +9,10 @@ import utils from "../../utils";
 
 const { injectNOS, nosProps } = react.default;
 
+import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+
+import ReactDOM from 'react-dom';
+
 const styles = {
   choices: {
     display: "flex",
@@ -57,7 +61,7 @@ class TableRow extends React.Component {
 
     }
 
-  
+
     componentDidMount = async () => {
 
       console.log("key len: " + this.props.data.length);
@@ -136,9 +140,9 @@ class TableRow extends React.Component {
             <td>{this.props.data}</td>
             <td>{this.state.value}</td>
             <td>
-            <button onClick={() => this.makeVote(this.props.data)}>
+            <Button onClick={() => this.makeVote(this.props.data)}>
               Vote
-            </button>
+            </Button>
             </td>
          </tr>
       );
